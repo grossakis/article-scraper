@@ -85,11 +85,7 @@ app.get("/scrape", function(req, res){
             allResults.push(result)
         });
         // res.send("SCRAPING COMPLETE");
-        // res.json(allResults);
-        if (statusCode >= 100 && statusCode < 600)
-  res.status(statusCode);
-else
-  res.status(500);
+        res.json(allResults);
     })
     .catch(function(err) {
         return res.json(err);
@@ -105,7 +101,7 @@ app.post("/articles", function (req, res) {
         .catch(function(err) {
             return res.json(err);
         });
-})
+});
 
 app.get("/articles", function(req, res) {
     db.Article.find({})
