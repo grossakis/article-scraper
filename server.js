@@ -86,6 +86,9 @@ app.get("/scrape", function(req, res){
         });
         // res.send("SCRAPING COMPLETE");
         res.json(allResults);
+    })
+    .catch(function(err) {
+        return res.json(err);
     });
 });
 
